@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wpa81+wp8</PackageTargetFallback>
+    <Title>Common Extensions for Prism Forms Projects</Title>
+    <Description>Provides reusable extensions for Prism Forms projects.</Description>
+    <PackageTags>prism;mvvm;uwp;xamarin.forms;ios;android</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Forms" Version="6.3.0" />
+    <!--<PackageReference Include="Humanizer" Version="2.2.0" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="../Prism.Extensions/**/*.cs">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+
+</Project>

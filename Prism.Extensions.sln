@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1FD1501C-B54
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prism.Extensions", "src\Prism.Extensions\Prism.Extensions.csproj", "{3CD20B38-587D-47AD-A025-4243268B255C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prism.Forms.Extensions", "src\Prism.Extensions\Prism.Forms.Extensions.csproj", "{F97AD38A-B70F-4709-A611-7910A5C4D9D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prism.Forms.Extensions", "src\Prism.Forms.Extensions\Prism.Forms.Extensions.csproj", "{F97AD38A-B70F-4709-A611-7910A5C4D9D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
