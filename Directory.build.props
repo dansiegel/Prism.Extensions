@@ -2,7 +2,7 @@
 <Project>
 
     <PropertyGroup>
-        <NeutralLanguage>en-US</NeutralLanguage>
+        <NeutralLanguage>en</NeutralLanguage>
         <Authors>Dan Siegel</Authors>
         <Owners>Dan Siegel</Owners>
         <PackageProjectUrl>https://github.com/dansiegel/Prism.Extensions</PackageProjectUrl>
@@ -10,9 +10,11 @@
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/dansiegel/Prism.Extensions</RepositoryUrl>
-        <PackageOutputPath>$(SolutionDir)/Build</PackageOutputPath>
-        <Version Condition=" '$(APPVEYOR_BUILD_VERSION)' == '' ">1.0.0</Version>
+        <PackageOutputPath>$(MSBuildThisFileDirectory)Artifacts</PackageOutputPath>
+        <Version Condition=" '$(APPVEYOR_BUILD_VERSION)' == '' ">1.0.0-pre1</Version>
         <Version Condition=" '$(APPVEYOR_BUILD_VERSION)' != '' ">$(APPVEYOR_BUILD_VERSION)</Version>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     </PropertyGroup>
 
 </Project>

@@ -1,8 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20</TargetFramework>
-    <!--<PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wpa81+wp8;portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20</PackageTargetFallback>-->
+    <TargetFramework>netstandard1.0</TargetFramework>
     <Title>Common Extensions for Prism Forms Projects</Title>
     <Description>Provides reusable extensions for Prism Forms projects.</Description>
     <PackageTags>prism;mvvm;uwp;xamarin.forms;ios;android</PackageTags>
@@ -10,8 +9,6 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Forms" Version="7.0.0.30-ci" />
-    <!--<PackageReference Include="Humanizer" Version="2.2.0" />-->
-    <PackageReference Include="Xamarin.Forms" Version="2.3.5.256-pre6" />
   </ItemGroup>
 
   <ItemGroup>

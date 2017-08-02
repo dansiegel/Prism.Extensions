@@ -1,9 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework Condition=" '$(OS)' != 'Windows_NT' ">netstandard1.0</TargetFramework>
-    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">net45;uap10.0</TargetFrameworks>
-    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wpa81+wp8</PackageTargetFallback>
+    <TargetFrameworks>net45;uap10.0</TargetFrameworks>
     <Title>Common Extensions for Prism Projects</Title>
     <Description>Provides reusable extensions for Prism projects</Description>
     <PackageTags>prism;mvvm;uwp;wpf</PackageTags>
