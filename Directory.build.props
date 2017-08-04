@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Project>
 
-    <PropertyGroup>
-        <NeutralLanguage>en</NeutralLanguage>
-        <Authors>Dan Siegel</Authors>
-        <Owners>Dan Siegel</Owners>
-        <PackageProjectUrl>https://github.com/dansiegel/Prism.Extensions</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/dansiegel/Prism.Extensions/blob/master/LICENSE</PackageLicenseUrl>
-        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/dansiegel/Prism.Extensions</RepositoryUrl>
-        <PackageOutputPath>$(MSBuildThisFileDirectory)Artifacts</PackageOutputPath>
-        <Version Condition=" '$(APPVEYOR_BUILD_VERSION)' == '' ">1.0.0-pre1</Version>
-        <Version Condition=" '$(APPVEYOR_BUILD_VERSION)' != '' ">$(APPVEYOR_BUILD_VERSION)</Version>
-        <GenerateDocumentationFile>True</GenerateDocumentationFile>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    </PropertyGroup>
+  <PropertyGroup>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Authors>Dan Siegel</Authors>
+    <Owners>Dan Siegel</Owners>
+    <PackageProjectUrl>https://github.com/dansiegel/Prism.Extensions</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/dansiegel/Prism.Extensions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/dansiegel/Prism.Extensions</RepositoryUrl>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)Artifacts</PackageOutputPath>
+    <PackageOutputPath Condition=" '$(BUILD_ARTIFACTSTAGINGDIRECTORY)' != '' ">$(BUILD_ARTIFACTSTAGINGDIRECTORY)</PackageOutputPath>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionPrefix Condition=" '$(BUILD_BUILDNUMBER)' != '' And '$(RELEASEBUILD)' != 'True' ">$(VersionPrefix).$(BUILD_BUILDNUMBER)</VersionPrefix>
+    <VersionSuffix Condition=" '$(BUILD_BUILDNUMBER)' != '' And '$(RELEASEBUILD)' != 'True' ">ci</VersionSuffix>
+    <VersionSuffix Condition=" '$(PREVIEW_NUMBER)' != '' ">pre$(PREVIEW_NUMBER)</VersionSuffix>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
 
 </Project>
