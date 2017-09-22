@@ -10,7 +10,11 @@
   <ItemGroup>
     <PackageReference Include="Prism.Core" Version="6.3.0" />
     <!--<PackageReference Include="Humanizer" Version="2.2.0" />-->
-    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.0.4" PrivateAssets="all" />
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.0.9" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' "> 
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform " Version="5.2.3" /> 
   </ItemGroup>
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
