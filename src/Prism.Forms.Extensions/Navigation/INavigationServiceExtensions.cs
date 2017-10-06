@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Prism.Common;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Prism.Navigation
 {
@@ -95,6 +98,42 @@ namespace Prism.Navigation
         /// <param name="animated">If <c>true</c> the transition is animated, if <c>false</c> there is no animation on transition.</param>
         public static Task NavigateAsync<T>(this INavigationService navigationService, string name, IEnumerable<T> navigationParameters, bool? useModalNavigation = null, bool animated = true) where T : class =>
             navigationService.NavigateAsync(name, GetNavigationParameters<T>(navigationParameters), useModalNavigation, animated);
+
+        /// <summary>
+        /// Returns to the Root View
+        /// </summary>
+        /// <param name="navigationService"></param>
+        /// <returns></returns>
+        public static Task PopToRootAsync(this INavigationService navigationService)
+        {
+            var nav = GetFormsNavigationService(navigationService);
+            return nav.PopToRootAsync();
+        }
+
+        /// <summary>
+        /// Will remove the last View from either the modal or non-modal stack
+        /// </summary>
+        /// <param name="navigationService"></param>
+        /// <param name="name"></param>
+        public static void RemoveView(this INavigationService navigationService, string name)
+        {
+            var formsNav = GetFormsNavigationService(navigationService);
+            var pageType = PageNavigationRegistry.GetPageType(name);
+
+            var page = formsNav.ModalStack.LastOrDefault(p => p.GetType() == pageType);
+            if(page == null)
+            {
+                page = formsNav.NavigationStack.LastOrDefault(p => p.GetType() == pageType);
+            }
+
+            formsNav.RemovePage(page);
+        }
+
+        private static INavigation GetFormsNavigationService(INavigationService navigationService)
+        {
+            var page = (IPageAware)navigationService;
+            return page.Page.Navigation;
+        }
 
         private static NavigationParameters GetNavigationParameters<T>(IEnumerable<T> navigationParameters) where T : class
         {
