@@ -5,6 +5,7 @@
     <Title>Common Extensions for Prism Projects</Title>
     <Description>Provides reusable extensions for Prism projects</Description>
     <PackageTags>prism;mvvm;uwp;wpf</PackageTags>
+    <PackageId>Prism.Core.Extensions</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
