@@ -2,11 +2,11 @@
 
 This library provides common extensions for Prism projects using either Prism Core or Prism Forms.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/yt4shqtglpcxdtg4?svg=true)](https://ci.appveyor.com/project/danjsiegel/prism-extensions)
+[![Build status](https://avantipoint.visualstudio.com/_apis/public/build/definitions/9ae3c52d-a8d5-4184-b4fe-94f6625d7f93/30/badge)](https://avantipoint.visualstudio.com/_apis/public/build/definitions/9ae3c52d-a8d5-4184-b4fe-94f6625d7f93/30/badge)
 
 | Package | Version |
 | ------- | ------- |
-| [Prism.Extensions][11] | [![21]][11] |
+| [Prism.Core.Extensions][11] | [![21]][11] |
 | [Prism.Forms.Extensions][12] | [![22]][12] |
 
 ## Logging
@@ -44,8 +44,8 @@ private async void NavigateToTodoItemList()
 }
 ```
 
-[11]: https://www.nuget.org/packages/Prism.Extensions
+[11]: https://www.nuget.org/packages/Prism.Core.Extensions
 [12]: https://www.nuget.org/packages/Prism.Forms.Extensions
 
-[21]: https://img.shields.io/nuget/vpre/Prism.Extensions.svg
+[21]: https://img.shields.io/nuget/vpre/Prism.Core.Extensions.svg
 [22]: https://img.shields.io/nuget/vpre/Prism.Forms.Extensions.svg
