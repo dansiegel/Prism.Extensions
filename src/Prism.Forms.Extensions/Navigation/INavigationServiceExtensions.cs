@@ -100,23 +100,20 @@ namespace Prism.Navigation
             navigationService.NavigateAsync(name, GetNavigationParameters<T>(navigationParameters), useModalNavigation, animated);
 
         /// <summary>
-        /// Returns to the Root View
-        /// </summary>
-        /// <param name="navigationService"></param>
-        /// <returns></returns>
-        public static Task PopToRootAsync(this INavigationService navigationService)
-        {
-            var nav = GetFormsNavigationService(navigationService);
-            return nav.PopToRootAsync();
-        }
-
-        /// <summary>
         /// Will remove the last View from either the modal or non-modal stack
         /// </summary>
         /// <param name="navigationService"></param>
         /// <param name="name"></param>
-        public static void RemoveView(this INavigationService navigationService, string name)
+        /// <param name="parameters"></param>
+        public static async Task RemoveViewAsync(this INavigationService navigationService, string name, NavigationParameters parameters = null)
         {
+            if(parameters == null)
+            {
+                parameters = new NavigationParameters
+                {
+                    { KnownNavigationParameters.NavigationMode, NavigationMode.Back }
+                };
+            }
             var formsNav = GetFormsNavigationService(navigationService);
             var pageType = PageNavigationRegistry.GetPageType(name);
 
@@ -126,7 +123,12 @@ namespace Prism.Navigation
                 page = formsNav.NavigationStack.LastOrDefault(p => p.GetType() == pageType);
             }
 
-            formsNav.RemovePage(page);
+            if (page != null && PageUtilities.CanNavigate(page, parameters) && await PageUtilities.CanNavigateAsync(page, parameters))
+            {
+                formsNav.RemovePage(page);
+                PageUtilities.OnNavigatedFrom(page, parameters);
+                PageUtilities.DestroyPage(page);
+            }
         }
 
         private static INavigation GetFormsNavigationService(INavigationService navigationService)
